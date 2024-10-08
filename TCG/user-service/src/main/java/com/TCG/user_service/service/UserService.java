@@ -21,6 +21,10 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public Mono<User> getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public Mono<User> createUser(User user) {
         return userRepository.save(user);
     }
@@ -41,4 +45,5 @@ public class UserService {
     public Mono<Void> deleteAllUsers() {
         return userRepository.deleteAll();
     }
+
 }

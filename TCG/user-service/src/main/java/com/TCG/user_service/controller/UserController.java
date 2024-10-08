@@ -25,8 +25,16 @@ public class UserController {
     // Récupérer un utilisateur par ID (Mono est utilisé pour renvoyer un seul
     // élément réactif)
     @GetMapping("/{id}")
-    public Mono<ResponseEntity<User>> getUserById(@PathVariable String id) {
+    public Mono<ResponseEntity<User>> getUserById(@PathVariable("id") String id) {
         return userService.getUserById(id)
+                .map(user -> ResponseEntity.ok(user))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    // Récupérer un utilisateur par username (Mono)
+    @GetMapping("/username/{username}")
+    public Mono<ResponseEntity<User>> getUserByUsername(@PathVariable("username") String username) {
+        return userService.getUserByUsername(username)
                 .map(user -> ResponseEntity.ok(user))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
@@ -39,7 +47,7 @@ public class UserController {
 
     // Mettre à jour un utilisateur par ID (Mono)
     @PutMapping("/{id}")
-    public Mono<ResponseEntity<User>> updateUser(@PathVariable String id, @RequestBody User user) {
+    public Mono<ResponseEntity<User>> updateUser(@PathVariable("id") String id, @RequestBody User user) {
         return userService.updateUser(id, user)
                 .map(updatedUser -> ResponseEntity.ok(updatedUser))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
@@ -47,7 +55,7 @@ public class UserController {
 
     // Supprimer un utilisateur par ID (Mono pour indiquer une action)
     @DeleteMapping("/{id}")
-    public Mono<ResponseEntity<Void>> deleteUser(@PathVariable String id) {
+    public Mono<ResponseEntity<Void>> deleteUser(@PathVariable("id") String id) {
         return userService.deleteUser(id)
                 .map(r -> ResponseEntity.noContent().<Void>build())
                 .defaultIfEmpty(ResponseEntity.notFound().build());
