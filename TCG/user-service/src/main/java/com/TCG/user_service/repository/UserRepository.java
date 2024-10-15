@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends ReactiveMongoRepository<User, String> {
 
     Mono<User> findByUsername(String username);
+
 }

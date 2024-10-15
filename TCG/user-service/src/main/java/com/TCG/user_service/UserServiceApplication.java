@@ -20,9 +20,9 @@ public class UserServiceApplication {
 		return args -> {
 			userService.deleteAllUsers().subscribe();
 			// Inserting users at startup
-			userService.createUser(new User("john", "john@example.com")).subscribe();
-			userService.createUser(new User("alice", "alice@example.com")).subscribe();
-			userService.createUser(new User("bob", "bob@example.com")).subscribe();
+			userService.createUser(new User("john", "john@example.com", "123456")).subscribe();
+			userService.createUser(new User("alice", "alice@example.com", "123456")).subscribe();
+			userService.createUser(new User("bob", "bob@example.com", "123456")).subscribe();
 		};
 	}
 }

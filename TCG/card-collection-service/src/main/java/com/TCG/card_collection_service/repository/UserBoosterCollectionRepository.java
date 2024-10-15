@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserBoosterCollectionRepository extends JpaRepository<UserBoosterCollection, Long> {
-    Optional<UserBoosterCollection> findByUserId(Long userId);
 }

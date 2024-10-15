@@ -3,6 +3,8 @@ package com.TCG.card_collection_service.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,6 +24,7 @@ public class UserBoosterCollection {
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id") // This is the foreign key in the User table
+    @JsonBackReference
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -34,8 +37,10 @@ public class UserBoosterCollection {
 
     public UserBoosterCollection(User user, Set<Booster> boosters) {
         this.user = user;
-        for (Booster booster : boosters) {
-            this.boosters.add(booster);
+        if (boosters != null) {
+            this.boosters.addAll(boosters);
+        } else {
+            this.boosters = new HashSet<>(); // Assurez-vous que boosters est toujours initialisé
         }
     }
 
@@ -62,6 +67,11 @@ public class UserBoosterCollection {
 
     public void setBoosters(Set<Booster> boosters) {
         this.boosters = boosters;
+    }
+
+    public void addBoosterInCollection(Booster booster) {
+        this.boosters.add(booster);
+
     }
 
     @Override

@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserCardCollectionRepository extends JpaRepository<UserCardCollection, Long> {
-    Optional<UserCardCollection> findByUserId(Long userId);
 }

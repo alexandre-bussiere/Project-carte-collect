@@ -1,6 +1,9 @@
 package com.TCG.card_collection_service.model;
 
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.HashSet;
 
 import jakarta.persistence.Entity;
@@ -21,6 +24,7 @@ public class UserCardCollection {
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id") // This is the foreign key in the User table
+    @JsonBackReference
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -33,8 +37,11 @@ public class UserCardCollection {
 
     public UserCardCollection(User user, Set<Card> cards) {
         this.user = user;
-        for (Card card : cards) {
-            this.cards.add(card);
+        if (cards != null) {
+            this.cards.addAll(cards);
+        } else {
+            this.cards = new HashSet<>(); // Assurez-vous que cards est toujours initialisé
+
         }
     }
 
@@ -61,5 +68,15 @@ public class UserCardCollection {
 
     public void setCards(Set<Card> cards) {
         this.cards = cards;
+    }
+
+    public void addCardToCollection(Card card) {
+        this.cards.add(card);
+    }
+
+    public void addCardSetToCollection(Set<Card> cards) {
+        for (Card card : cards) {
+            this.cards.add(card);
+        }
     }
 }

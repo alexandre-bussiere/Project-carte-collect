@@ -17,17 +17,21 @@ public class Card {
     private String effect;
     private int cost;
     private String rarity;
+    private String type;
+    private String illustation; // posibility to add an illustration later
 
     public Card() {
     }
 
-    public Card(String name, int defensiveStat, int offensiveStat, String effect, int cost, String rarity) {
+    public Card(String name, int defensiveStat, int offensiveStat, String effect, int cost, String rarity,
+            String type) {
         this.name = name;
         this.defensiveStat = defensiveStat;
         this.offensiveStat = offensiveStat;
         this.effect = effect;
         this.cost = cost;
         this.rarity = rarity;
+        this.type = type;
     }
     // Getters and Setters
 
@@ -86,4 +90,13 @@ public class Card {
     public void setRarity(String rarity) {
         this.rarity = rarity;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }

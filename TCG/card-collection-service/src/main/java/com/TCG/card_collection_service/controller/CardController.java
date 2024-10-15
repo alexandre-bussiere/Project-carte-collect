@@ -7,20 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/cards")
+@RequestMapping("/TCG/cards")
 public class CardController {
 
     @Autowired
     private CardService cardService;
 
-    @PostMapping("/create")
-    public ResponseEntity<Card> createCard(@RequestBody Card card) {
-        return ResponseEntity.ok(cardService.createCard(card));
-    }
-
-    @PostMapping("/addToUser")
-    public ResponseEntity<String> addCardToUser(@RequestParam Long userId, @RequestParam Long cardId) {
-        cardService.addCardToUser(userId, cardId);
-        return ResponseEntity.ok("Card added to user");
-    }
 }

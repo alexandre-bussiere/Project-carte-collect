@@ -1,5 +1,7 @@
 package com.TCG.user_service.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.TCG.user_service.model.User;
 import com.TCG.user_service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class UserService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
     @Autowired
     private UserRepository userRepository;
 
@@ -23,6 +26,16 @@ public class UserService {
 
     public Mono<User> getUserByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    public Mono<User> getUserByLogin(String username, String password) {
+        User user = userRepository.findByUsername(username).block(); // will block until the user is fetched
+        logger.info("User: {}", user);
+        if (user != null && user.getPassword().equals(password)) { // check if the user exists and the password correct
+            return Mono.just(user);
+        } else {
+            return Mono.empty();
+        }
     }
 
     public Mono<User> createUser(User user) {
