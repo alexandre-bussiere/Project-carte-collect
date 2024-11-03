@@ -70,7 +70,7 @@ public class UserCardCollection {
         this.cards = cards;
     }
 
-    public void addCardToCollection(Card card) {
+    public void addCardInCollection(Card card) {
         this.cards.add(card);
     }
 
@@ -79,4 +79,5 @@ public class UserCardCollection {
             this.cards.add(card);
         }
     }
+
 }

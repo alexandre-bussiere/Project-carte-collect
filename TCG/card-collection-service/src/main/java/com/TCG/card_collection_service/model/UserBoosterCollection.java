@@ -74,6 +74,10 @@ public class UserBoosterCollection {
 
     }
 
+    public void addBoosterSetToCollection(Set<Booster> boosters) {
+        this.boosters.addAll(boosters);
+    }
+
     @Override
     public String toString() {
         return "UserBoosterCollection{" +
@@ -82,4 +86,5 @@ public class UserBoosterCollection {
                 ", boosters=" + boosters +
                 '}';
     }
+
 }
