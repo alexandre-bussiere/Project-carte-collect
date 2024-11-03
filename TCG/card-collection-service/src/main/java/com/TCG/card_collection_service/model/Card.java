@@ -18,7 +18,7 @@ public class Card {
     private int cost;
     private String rarity;
     private String type;
-    private String illustation; // posibility to add an illustration later
+    // private String illustation; // posibility to add an illustration later
 
     public Card() {
     }

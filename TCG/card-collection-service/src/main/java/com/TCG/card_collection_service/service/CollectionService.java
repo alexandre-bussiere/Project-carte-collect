@@ -7,14 +7,11 @@ import com.TCG.card_collection_service.model.UserBoosterCollection;
 import com.TCG.card_collection_service.model.UserCardCollection;
 import com.TCG.card_collection_service.repository.BoosterRepository;
 import com.TCG.card_collection_service.repository.CardRepository;
-import com.TCG.card_collection_service.repository.UserBoosterCollectionRepository;
 import com.TCG.card_collection_service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class CollectionService {

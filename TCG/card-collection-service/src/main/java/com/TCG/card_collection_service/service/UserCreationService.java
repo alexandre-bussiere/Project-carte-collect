@@ -1,8 +1,6 @@
 package com.TCG.card_collection_service.service;
 
 import com.TCG.card_collection_service.model.User;
-import com.TCG.card_collection_service.model.UserBoosterCollection;
-import com.TCG.card_collection_service.model.UserCardCollection;
 import com.TCG.card_collection_service.repository.UserRepository;
 
 import java.util.List;
