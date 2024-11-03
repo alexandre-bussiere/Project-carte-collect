@@ -5,21 +5,21 @@ package com.example.lib;
 
 /**
  * <pre>
- * The response message containing the greetings
+ * Message de la réponse
  * </pre>
  *
- * Protobuf type {@code com.example.HelloReply}
+ * Protobuf type {@code com.example.CardExchangeResponse}
  */
-public final class HelloReply extends
+public final class CardExchangeResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.example.HelloReply)
-    HelloReplyOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.example.CardExchangeResponse)
+    CardExchangeResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use HelloReply.newBuilder() to construct.
-  private HelloReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CardExchangeResponse.newBuilder() to construct.
+  private CardExchangeResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private HelloReply() {
+  private CardExchangeResponse() {
     message_ = "";
   }
 
@@ -27,27 +27,46 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new HelloReply();
+    return new CardExchangeResponse();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.example.lib.HelloWorldProto.internal_static_com_example_HelloReply_descriptor;
+    return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.example.lib.HelloWorldProto.internal_static_com_example_HelloReply_fieldAccessorTable
+    return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.example.lib.HelloReply.class, com.example.lib.HelloReply.Builder.class);
+            com.example.lib.CardExchangeResponse.class, com.example.lib.CardExchangeResponse.Builder.class);
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
+  private boolean success_ = false;
+  /**
+   * <pre>
+   * Statut de l'échange (réussi ou non)
+   * </pre>
+   *
+   * <code>bool success = 1;</code>
+   * @return The success.
+   */
+  @java.lang.Override
+  public boolean getSuccess() {
+    return success_;
+  }
+
+  public static final int MESSAGE_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
-   * <code>string message = 1;</code>
+   * <pre>
+   * Message de confirmation ou d'erreur
+   * </pre>
+   *
+   * <code>string message = 2;</code>
    * @return The message.
    */
   @java.lang.Override
@@ -64,7 +83,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string message = 1;</code>
+   * <pre>
+   * Message de confirmation ou d'erreur
+   * </pre>
+   *
+   * <code>string message = 2;</code>
    * @return The bytes for message.
    */
   @java.lang.Override
@@ -96,8 +119,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (success_ != false) {
+      output.writeBool(1, success_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -108,8 +134,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (success_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(1, success_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -121,11 +151,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.example.lib.HelloReply)) {
+    if (!(obj instanceof com.example.lib.CardExchangeResponse)) {
       return super.equals(obj);
     }
-    com.example.lib.HelloReply other = (com.example.lib.HelloReply) obj;
+    com.example.lib.CardExchangeResponse other = (com.example.lib.CardExchangeResponse) obj;
 
+    if (getSuccess()
+        != other.getSuccess()) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -139,6 +171,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSuccess());
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -146,44 +181,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloReply parseFrom(byte[] data)
+  public static com.example.lib.CardExchangeResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloReply parseFrom(java.io.InputStream input)
+  public static com.example.lib.CardExchangeResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -191,26 +226,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.example.lib.HelloReply parseDelimitedFrom(java.io.InputStream input)
+  public static com.example.lib.CardExchangeResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.example.lib.HelloReply parseDelimitedFrom(
+  public static com.example.lib.CardExchangeResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.example.lib.HelloReply parseFrom(
+  public static com.example.lib.CardExchangeResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -223,7 +258,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.example.lib.HelloReply prototype) {
+  public static Builder newBuilder(com.example.lib.CardExchangeResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -240,29 +275,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The response message containing the greetings
+   * Message de la réponse
    * </pre>
    *
-   * Protobuf type {@code com.example.HelloReply}
+   * Protobuf type {@code com.example.CardExchangeResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.HelloReply)
-      com.example.lib.HelloReplyOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.example.CardExchangeResponse)
+      com.example.lib.CardExchangeResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloReply_descriptor;
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloReply_fieldAccessorTable
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.example.lib.HelloReply.class, com.example.lib.HelloReply.Builder.class);
+              com.example.lib.CardExchangeResponse.class, com.example.lib.CardExchangeResponse.Builder.class);
     }
 
-    // Construct using com.example.lib.HelloReply.newBuilder()
+    // Construct using com.example.lib.CardExchangeResponse.newBuilder()
     private Builder() {
 
     }
@@ -276,6 +311,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      success_ = false;
       message_ = "";
       return this;
     }
@@ -283,17 +319,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloReply_descriptor;
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.example.lib.HelloReply getDefaultInstanceForType() {
-      return com.example.lib.HelloReply.getDefaultInstance();
+    public com.example.lib.CardExchangeResponse getDefaultInstanceForType() {
+      return com.example.lib.CardExchangeResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.example.lib.HelloReply build() {
-      com.example.lib.HelloReply result = buildPartial();
+    public com.example.lib.CardExchangeResponse build() {
+      com.example.lib.CardExchangeResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -301,16 +337,19 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.example.lib.HelloReply buildPartial() {
-      com.example.lib.HelloReply result = new com.example.lib.HelloReply(this);
+    public com.example.lib.CardExchangeResponse buildPartial() {
+      com.example.lib.CardExchangeResponse result = new com.example.lib.CardExchangeResponse(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.example.lib.HelloReply result) {
+    private void buildPartial0(com.example.lib.CardExchangeResponse result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.success_ = success_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.message_ = message_;
       }
     }
@@ -349,19 +388,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.example.lib.HelloReply) {
-        return mergeFrom((com.example.lib.HelloReply)other);
+      if (other instanceof com.example.lib.CardExchangeResponse) {
+        return mergeFrom((com.example.lib.CardExchangeResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.example.lib.HelloReply other) {
-      if (other == com.example.lib.HelloReply.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.example.lib.CardExchangeResponse other) {
+      if (other == com.example.lib.CardExchangeResponse.getDefaultInstance()) return this;
+      if (other.getSuccess() != false) {
+        setSuccess(other.getSuccess());
+      }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -390,11 +432,16 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              message_ = input.readStringRequireUtf8();
+            case 8: {
+              success_ = input.readBool();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
+            } // case 8
+            case 18: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -412,9 +459,57 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private boolean success_ ;
+    /**
+     * <pre>
+     * Statut de l'échange (réussi ou non)
+     * </pre>
+     *
+     * <code>bool success = 1;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+    /**
+     * <pre>
+     * Statut de l'échange (réussi ou non)
+     * </pre>
+     *
+     * <code>bool success = 1;</code>
+     * @param value The success to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSuccess(boolean value) {
+
+      success_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Statut de l'échange (réussi ou non)
+     * </pre>
+     *
+     * <code>bool success = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSuccess() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      success_ = false;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object message_ = "";
     /**
-     * <code>string message = 1;</code>
+     * <pre>
+     * Message de confirmation ou d'erreur
+     * </pre>
+     *
+     * <code>string message = 2;</code>
      * @return The message.
      */
     public java.lang.String getMessage() {
@@ -430,7 +525,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <pre>
+     * Message de confirmation ou d'erreur
+     * </pre>
+     *
+     * <code>string message = 2;</code>
      * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
@@ -447,7 +546,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <pre>
+     * Message de confirmation ou d'erreur
+     * </pre>
+     *
+     * <code>string message = 2;</code>
      * @param value The message to set.
      * @return This builder for chaining.
      */
@@ -455,22 +558,30 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       message_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <pre>
+     * Message de confirmation ou d'erreur
+     * </pre>
+     *
+     * <code>string message = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
       message_ = getDefaultInstance().getMessage();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <pre>
+     * Message de confirmation ou d'erreur
+     * </pre>
+     *
+     * <code>string message = 2;</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
@@ -479,7 +590,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       message_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -496,23 +607,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.example.HelloReply)
+    // @@protoc_insertion_point(builder_scope:com.example.CardExchangeResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.HelloReply)
-  private static final com.example.lib.HelloReply DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.example.CardExchangeResponse)
+  private static final com.example.lib.CardExchangeResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.example.lib.HelloReply();
+    DEFAULT_INSTANCE = new com.example.lib.CardExchangeResponse();
   }
 
-  public static com.example.lib.HelloReply getDefaultInstance() {
+  public static com.example.lib.CardExchangeResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HelloReply>
-      PARSER = new com.google.protobuf.AbstractParser<HelloReply>() {
+  private static final com.google.protobuf.Parser<CardExchangeResponse>
+      PARSER = new com.google.protobuf.AbstractParser<CardExchangeResponse>() {
     @java.lang.Override
-    public HelloReply parsePartialFrom(
+    public CardExchangeResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -531,17 +642,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<HelloReply> parser() {
+  public static com.google.protobuf.Parser<CardExchangeResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HelloReply> getParserForType() {
+  public com.google.protobuf.Parser<CardExchangeResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.example.lib.HelloReply getDefaultInstanceForType() {
+  public com.example.lib.CardExchangeResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

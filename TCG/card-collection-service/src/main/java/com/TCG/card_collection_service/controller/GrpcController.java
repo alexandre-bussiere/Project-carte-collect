@@ -1,9 +1,11 @@
+package com.TCG.card_collection_service.controller;
+
 import com.TCG.card_collection_service.service.GrpcClientService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 public class GrpcController {
@@ -15,8 +17,9 @@ public class GrpcController {
         this.grpcClientService = grpcClientService;
     }
 
-    @GetMapping("/call-grpc")
-    public String callGrpcService(@RequestParam String parameter) {
-        return grpcClientService.callGrpcService(parameter);
+    @GetMapping("/exchange-card")
+    public String exchangeCard(@RequestParam String idDeJoueur, @RequestParam String idDeCarte) {
+        // Appeler le client gRPC pour échanger la carte
+        return grpcClientService.callCardExchange(idDeJoueur, idDeCarte);
     }
 }

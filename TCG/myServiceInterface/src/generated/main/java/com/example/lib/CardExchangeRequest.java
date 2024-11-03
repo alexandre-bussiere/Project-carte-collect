@@ -5,77 +5,133 @@ package com.example.lib;
 
 /**
  * <pre>
- * The request message containing the user's name
+ * Message de la requête
  * </pre>
  *
- * Protobuf type {@code com.example.HelloRequest}
+ * Protobuf type {@code com.example.CardExchangeRequest}
  */
-public final class HelloRequest extends
+public final class CardExchangeRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.example.HelloRequest)
-    HelloRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.example.CardExchangeRequest)
+    CardExchangeRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use HelloRequest.newBuilder() to construct.
-  private HelloRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CardExchangeRequest.newBuilder() to construct.
+  private CardExchangeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private HelloRequest() {
-    name_ = "";
+  private CardExchangeRequest() {
+    idDeJoueur_ = "";
+    idDeCarte_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new HelloRequest();
+    return new CardExchangeRequest();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.example.lib.HelloWorldProto.internal_static_com_example_HelloRequest_descriptor;
+    return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.example.lib.HelloWorldProto.internal_static_com_example_HelloRequest_fieldAccessorTable
+    return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.example.lib.HelloRequest.class, com.example.lib.HelloRequest.Builder.class);
+            com.example.lib.CardExchangeRequest.class, com.example.lib.CardExchangeRequest.Builder.class);
   }
 
-  public static final int NAME_FIELD_NUMBER = 1;
+  public static final int IDDEJOUEUR_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object name_ = "";
+  private volatile java.lang.Object idDeJoueur_ = "";
   /**
-   * <code>string name = 1;</code>
-   * @return The name.
+   * <pre>
+   * Identifiant du joueur
+   * </pre>
+   *
+   * <code>string idDeJoueur = 1;</code>
+   * @return The idDeJoueur.
    */
   @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
+  public java.lang.String getIdDeJoueur() {
+    java.lang.Object ref = idDeJoueur_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      name_ = s;
+      idDeJoueur_ = s;
       return s;
     }
   }
   /**
-   * <code>string name = 1;</code>
-   * @return The bytes for name.
+   * <pre>
+   * Identifiant du joueur
+   * </pre>
+   *
+   * <code>string idDeJoueur = 1;</code>
+   * @return The bytes for idDeJoueur.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
+      getIdDeJoueurBytes() {
+    java.lang.Object ref = idDeJoueur_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      name_ = b;
+      idDeJoueur_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int IDDECARTE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object idDeCarte_ = "";
+  /**
+   * <pre>
+   * Identifiant de la carte
+   * </pre>
+   *
+   * <code>string idDeCarte = 2;</code>
+   * @return The idDeCarte.
+   */
+  @java.lang.Override
+  public java.lang.String getIdDeCarte() {
+    java.lang.Object ref = idDeCarte_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      idDeCarte_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Identifiant de la carte
+   * </pre>
+   *
+   * <code>string idDeCarte = 2;</code>
+   * @return The bytes for idDeCarte.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdDeCarteBytes() {
+    java.lang.Object ref = idDeCarte_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      idDeCarte_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -96,8 +152,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idDeJoueur_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idDeJoueur_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idDeCarte_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, idDeCarte_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -108,8 +167,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idDeJoueur_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idDeJoueur_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idDeCarte_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, idDeCarte_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -121,13 +183,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.example.lib.HelloRequest)) {
+    if (!(obj instanceof com.example.lib.CardExchangeRequest)) {
       return super.equals(obj);
     }
-    com.example.lib.HelloRequest other = (com.example.lib.HelloRequest) obj;
+    com.example.lib.CardExchangeRequest other = (com.example.lib.CardExchangeRequest) obj;
 
-    if (!getName()
-        .equals(other.getName())) return false;
+    if (!getIdDeJoueur()
+        .equals(other.getIdDeJoueur())) return false;
+    if (!getIdDeCarte()
+        .equals(other.getIdDeCarte())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -139,51 +203,53 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + IDDEJOUEUR_FIELD_NUMBER;
+    hash = (53 * hash) + getIdDeJoueur().hashCode();
+    hash = (37 * hash) + IDDECARTE_FIELD_NUMBER;
+    hash = (53 * hash) + getIdDeCarte().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloRequest parseFrom(byte[] data)
+  public static com.example.lib.CardExchangeRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.example.lib.HelloRequest parseFrom(java.io.InputStream input)
+  public static com.example.lib.CardExchangeRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -191,26 +257,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.example.lib.HelloRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.example.lib.CardExchangeRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.example.lib.HelloRequest parseDelimitedFrom(
+  public static com.example.lib.CardExchangeRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.example.lib.HelloRequest parseFrom(
+  public static com.example.lib.CardExchangeRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -223,7 +289,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.example.lib.HelloRequest prototype) {
+  public static Builder newBuilder(com.example.lib.CardExchangeRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -240,29 +306,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The request message containing the user's name
+   * Message de la requête
    * </pre>
    *
-   * Protobuf type {@code com.example.HelloRequest}
+   * Protobuf type {@code com.example.CardExchangeRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.HelloRequest)
-      com.example.lib.HelloRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.example.CardExchangeRequest)
+      com.example.lib.CardExchangeRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloRequest_descriptor;
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloRequest_fieldAccessorTable
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.example.lib.HelloRequest.class, com.example.lib.HelloRequest.Builder.class);
+              com.example.lib.CardExchangeRequest.class, com.example.lib.CardExchangeRequest.Builder.class);
     }
 
-    // Construct using com.example.lib.HelloRequest.newBuilder()
+    // Construct using com.example.lib.CardExchangeRequest.newBuilder()
     private Builder() {
 
     }
@@ -276,24 +342,25 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      name_ = "";
+      idDeJoueur_ = "";
+      idDeCarte_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.example.lib.HelloWorldProto.internal_static_com_example_HelloRequest_descriptor;
+      return com.example.lib.CardExchangeProto.internal_static_com_example_CardExchangeRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.example.lib.HelloRequest getDefaultInstanceForType() {
-      return com.example.lib.HelloRequest.getDefaultInstance();
+    public com.example.lib.CardExchangeRequest getDefaultInstanceForType() {
+      return com.example.lib.CardExchangeRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.example.lib.HelloRequest build() {
-      com.example.lib.HelloRequest result = buildPartial();
+    public com.example.lib.CardExchangeRequest build() {
+      com.example.lib.CardExchangeRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -301,17 +368,20 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.example.lib.HelloRequest buildPartial() {
-      com.example.lib.HelloRequest result = new com.example.lib.HelloRequest(this);
+    public com.example.lib.CardExchangeRequest buildPartial() {
+      com.example.lib.CardExchangeRequest result = new com.example.lib.CardExchangeRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.example.lib.HelloRequest result) {
+    private void buildPartial0(com.example.lib.CardExchangeRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.name_ = name_;
+        result.idDeJoueur_ = idDeJoueur_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.idDeCarte_ = idDeCarte_;
       }
     }
 
@@ -349,19 +419,24 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.example.lib.HelloRequest) {
-        return mergeFrom((com.example.lib.HelloRequest)other);
+      if (other instanceof com.example.lib.CardExchangeRequest) {
+        return mergeFrom((com.example.lib.CardExchangeRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.example.lib.HelloRequest other) {
-      if (other == com.example.lib.HelloRequest.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
+    public Builder mergeFrom(com.example.lib.CardExchangeRequest other) {
+      if (other == com.example.lib.CardExchangeRequest.getDefaultInstance()) return this;
+      if (!other.getIdDeJoueur().isEmpty()) {
+        idDeJoueur_ = other.idDeJoueur_;
         bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      if (!other.getIdDeCarte().isEmpty()) {
+        idDeCarte_ = other.idDeCarte_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -391,10 +466,15 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              name_ = input.readStringRequireUtf8();
+              idDeJoueur_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 18: {
+              idDeCarte_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -412,74 +492,186 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object idDeJoueur_ = "";
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <pre>
+     * Identifiant du joueur
+     * </pre>
+     *
+     * <code>string idDeJoueur = 1;</code>
+     * @return The idDeJoueur.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getIdDeJoueur() {
+      java.lang.Object ref = idDeJoueur_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        idDeJoueur_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <pre>
+     * Identifiant du joueur
+     * </pre>
+     *
+     * <code>string idDeJoueur = 1;</code>
+     * @return The bytes for idDeJoueur.
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getIdDeJoueurBytes() {
+      java.lang.Object ref = idDeJoueur_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        idDeJoueur_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string name = 1;</code>
-     * @param value The name to set.
+     * <pre>
+     * Identifiant du joueur
+     * </pre>
+     *
+     * <code>string idDeJoueur = 1;</code>
+     * @param value The idDeJoueur to set.
      * @return This builder for chaining.
      */
-    public Builder setName(
+    public Builder setIdDeJoueur(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      name_ = value;
+      idDeJoueur_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <pre>
+     * Identifiant du joueur
+     * </pre>
+     *
+     * <code>string idDeJoueur = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearName() {
-      name_ = getDefaultInstance().getName();
+    public Builder clearIdDeJoueur() {
+      idDeJoueur_ = getDefaultInstance().getIdDeJoueur();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
-     * @param value The bytes for name to set.
+     * <pre>
+     * Identifiant du joueur
+     * </pre>
+     *
+     * <code>string idDeJoueur = 1;</code>
+     * @param value The bytes for idDeJoueur to set.
      * @return This builder for chaining.
      */
-    public Builder setNameBytes(
+    public Builder setIdDeJoueurBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      name_ = value;
+      idDeJoueur_ = value;
       bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object idDeCarte_ = "";
+    /**
+     * <pre>
+     * Identifiant de la carte
+     * </pre>
+     *
+     * <code>string idDeCarte = 2;</code>
+     * @return The idDeCarte.
+     */
+    public java.lang.String getIdDeCarte() {
+      java.lang.Object ref = idDeCarte_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idDeCarte_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Identifiant de la carte
+     * </pre>
+     *
+     * <code>string idDeCarte = 2;</code>
+     * @return The bytes for idDeCarte.
+     */
+    public com.google.protobuf.ByteString
+        getIdDeCarteBytes() {
+      java.lang.Object ref = idDeCarte_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idDeCarte_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Identifiant de la carte
+     * </pre>
+     *
+     * <code>string idDeCarte = 2;</code>
+     * @param value The idDeCarte to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdDeCarte(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      idDeCarte_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Identifiant de la carte
+     * </pre>
+     *
+     * <code>string idDeCarte = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIdDeCarte() {
+      idDeCarte_ = getDefaultInstance().getIdDeCarte();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Identifiant de la carte
+     * </pre>
+     *
+     * <code>string idDeCarte = 2;</code>
+     * @param value The bytes for idDeCarte to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdDeCarteBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      idDeCarte_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -496,23 +688,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.example.HelloRequest)
+    // @@protoc_insertion_point(builder_scope:com.example.CardExchangeRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.HelloRequest)
-  private static final com.example.lib.HelloRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.example.CardExchangeRequest)
+  private static final com.example.lib.CardExchangeRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.example.lib.HelloRequest();
+    DEFAULT_INSTANCE = new com.example.lib.CardExchangeRequest();
   }
 
-  public static com.example.lib.HelloRequest getDefaultInstance() {
+  public static com.example.lib.CardExchangeRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HelloRequest>
-      PARSER = new com.google.protobuf.AbstractParser<HelloRequest>() {
+  private static final com.google.protobuf.Parser<CardExchangeRequest>
+      PARSER = new com.google.protobuf.AbstractParser<CardExchangeRequest>() {
     @java.lang.Override
-    public HelloRequest parsePartialFrom(
+    public CardExchangeRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -531,17 +723,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<HelloRequest> parser() {
+  public static com.google.protobuf.Parser<CardExchangeRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HelloRequest> getParserForType() {
+  public com.google.protobuf.Parser<CardExchangeRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.example.lib.HelloRequest getDefaultInstanceForType() {
+  public com.example.lib.CardExchangeRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
