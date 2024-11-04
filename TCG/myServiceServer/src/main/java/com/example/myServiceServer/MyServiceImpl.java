@@ -2,14 +2,14 @@ package com.example.myServiceServer;
 
 import com.example.lib.CardExchangeRequest;
 import com.example.lib.CardExchangeResponse;
-import com.example.lib.MyServiceGrpc;
+import com.example.lib.CardServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @GrpcService
-public class MyServiceImpl extends MyServiceGrpc.MyServiceImplBase {
+public class MyServiceImpl extends CardServiceGrpc.CardServiceImplBase {
 
     Logger logger = LoggerFactory.getLogger(MyServiceImpl.class);
 

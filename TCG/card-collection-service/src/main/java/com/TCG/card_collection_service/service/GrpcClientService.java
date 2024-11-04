@@ -2,7 +2,7 @@ package com.TCG.card_collection_service.service;
 
 import com.example.lib.CardExchangeRequest;
 import com.example.lib.CardExchangeResponse;
-import com.example.lib.MyServiceGrpc;
+import com.example.lib.CardServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GrpcClientService {
 
-    private final MyServiceGrpc.MyServiceBlockingStub grpcServiceStub;
+    private final CardServiceGrpc.CardServiceBlockingStub grpcServiceStub;
 
     public GrpcClientService() {
         ManagedChannel channel = ManagedChannelBuilder
@@ -18,7 +18,7 @@ public class GrpcClientService {
                 .usePlaintext()
                 .build();
 
-        this.grpcServiceStub = MyServiceGrpc.newBlockingStub(channel);
+        this.grpcServiceStub = CardServiceGrpc.newBlockingStub(channel);
     }
 
     public String callCardExchange(String idDeJoueur, String idDeCarte) {

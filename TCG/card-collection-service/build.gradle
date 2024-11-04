@@ -26,13 +26,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // Dépendances gRPC
-    implementation 'io.grpc:grpc-netty:1.58.0'
-    implementation 'io.grpc:grpc-stub:1.58.0'
-    implementation 'io.grpc:grpc-protobuf:1.58.0'
-
-    // Dépendance du JAR généré par le service gRPC/Protobuf
-    implementation files('libs/proto-service.jar') // Utilisez le chemin du JAR généré par le service Protobuf
-
+    implementation project(':myServiceInterface')
+    implementation 'net.devh:grpc-server-spring-boot-starter:3.1.0.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     // Autres dépendances de persistance ou de base de données
     implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
     runtimeOnly 'com.h2database:h2'

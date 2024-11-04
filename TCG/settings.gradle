@@ -1,0 +1,6 @@
+rootProject.name = 'TCG'
+
+include 'card-collection-service'
+include 'myServiceServer'
+include 'myServiceInterface'
+include 'user-service'
