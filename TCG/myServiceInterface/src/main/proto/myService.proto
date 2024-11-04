@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.example;
+
+option java_multiple_files = true;
+option java_package = "com.example.lib";
+option java_outer_classname = "CardExchangeProto";  // Nom de la classe contenant le code généré si vous souhaitez tout centraliser
+
+// Définition du service gRPC
+service CardService {
+  // Méthode CardExchange pour échanger une carte entre joueurs
+  rpc CardExchange (CardExchangeRequest) returns (CardExchangeResponse);
+}
+
+// Message de la requête
+message CardExchangeRequest {
+  string idDeJoueur = 1; // Identifiant du joueur
+  string idDeCarte = 2;  // Identifiant de la carte
+}
+
+// Message de la réponse
+message CardExchangeResponse {
+  bool success = 1;      // Statut de l'échange (réussi ou non)
+  string message = 2;    // Message de confirmation ou d'erreur
+}
